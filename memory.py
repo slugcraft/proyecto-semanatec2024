@@ -15,6 +15,8 @@ from turtle import (up, goto, down, color, begin_fill, forward, left, end_fill, 
 
 from freegames import path
 
+import time
+
 car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
@@ -85,6 +87,16 @@ def draw():
     up()
     goto(-200, 200)
     write("Number of taps: " + str(tap_count), font=('Arial', 30, 'normal'))
+
+    if not any(hide):
+        up()
+        goto(-100, 0)
+        write("All tiles revealed", font=('Arial', 30, 'normal'))
+        print("All tiles revealed")
+        print("Game Over")
+
+        time.sleep(5)
+        exit()
 
     update()
     ontimer(draw, 100)
