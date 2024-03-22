@@ -25,7 +25,12 @@ tap_count = 0
 
 
 def square(x, y):
-    """Draw white square with black outline at (x, y)."""
+    """
+    Draw white square with black outline at (x, y).
+    Args:
+        x: x-coordinate.
+        y: y-coordinate.
+    """
     up()
     goto(x, y)
     down()
@@ -38,17 +43,35 @@ def square(x, y):
 
 
 def index(x, y):
-    """Convert (x, y) coordinates to tiles index."""
+    """
+    Convert (x, y) coordinates to tiles index.
+    Args:
+        x: x-coordinate.
+        y: y-coordinate.
+    Returns:
+        int: tiles index.
+    """
     return int((x + 200) // 50 + ((y + 200) // 50) * 8)
 
 
 def xy(count):
-    """Convert tiles count to (x, y) coordinates."""
+    """
+    Convert tiles count to (x, y) coordinates.
+    Args:
+        count: tiles count.
+    Returns:
+        tuple: (x, y) coordinates.
+    """
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
 
 def tap(x, y):
-    """Update mark and hidden tiles based on tap."""
+    """
+    Update mark and hidden tiles based on tap.
+    Args:
+        x: x-coordinate.
+        y: y-coordinate.
+    """
     global tap_count
     tap_count += 1
     print("Number of taps: ", tap_count)
@@ -64,7 +87,9 @@ def tap(x, y):
 
 
 def draw():
-    """Draw image and tiles."""
+    """
+    Draw image and tiles.
+    """
     clear()
     goto(0, 0)
     shape(car)
@@ -101,8 +126,10 @@ def draw():
     update()
     ontimer(draw, 100)
 
-
+# shuffle tiles and setup game
 shuffle(tiles)
+
+# setup game
 setup(500, 500, 370, 0)
 addshape(car)
 hideturtle()
