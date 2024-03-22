@@ -8,7 +8,7 @@ Exercises
 4. How could you create a computer player?
 """
 
-from turtle import update, up, goto, down, circle
+from turtle import update, up, goto, down, circle,color
 from turtle import setup, hideturtle, tracer, onscreenclick, done
 
 from freegames import line
@@ -24,12 +24,14 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
+    color("red")
     line(x, y, x + 133, y + 133)
     line(x, y + 133, x + 133, y)
 
 
 def drawo(x, y):
     """Draw O player."""
+    color("blue")
     up()
     goto(x + 67, y + 5)
     down()
