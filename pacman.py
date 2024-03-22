@@ -17,17 +17,19 @@ from turtle import Turtle, bgcolor, \
 
 from freegames import floor, vector
 
+# Initializing game state variables
 state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
-aim = vector(5, 0)
-pacman = vector(-40, -80)
+aim = vector(5, 0)  # Direction vector for Pacman movement
+pacman = vector(-40, -80)  # Initial position of Pacman
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(-180, 160), vector(5, 0)],   # Ghost 1 position and movement vector
+    [vector(-180, -160), vector(0, 5)],  # Ghost 2 position and movement vector
+    [vector(100, 160), vector(0, -5)],   # Ghost 3 position and movement vector
+    [vector(100, -160), vector(-5, 0)],  # Ghost 4 position and movement vector
 ]
+
 # fmt: off
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -55,7 +57,12 @@ tiles = [
 
 
 def square(x, y):
-    """Draw square using path at (x, y)."""
+    """
+    Draw a square using the path at position (x, y).
+    Args:
+        x: x-coordinate of the square.
+        y: y-coordinate of the square.
+    """
     path.up()
     path.goto(x, y)
     path.down()
@@ -69,7 +76,13 @@ def square(x, y):
 
 
 def offset(point):
-    """Return offset of point in tiles."""
+    """
+    Return the offset of a point in tiles.
+    Args:
+        point: A vector representing a point.
+    Returns:
+        The index of the point in the tiles list.
+    """
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
@@ -77,7 +90,13 @@ def offset(point):
 
 
 def valid(point):
-    """Return True if point is valid in tiles."""
+    """
+    Check if a point is valid within the game tiles.
+    Args:
+        point: A vector representing a point.
+    Returns:
+        True if the point is valid, False otherwise.
+    """
     index = offset(point)
 
     if tiles[index] == 0:
@@ -92,7 +111,7 @@ def valid(point):
 
 
 def world():
-    """Draw world using path."""
+    """Draw the game world using path."""
     bgcolor('black')
     path.color('blue')
 
@@ -111,7 +130,7 @@ def world():
 
 
 def move():
-    """Move pacman and all ghosts."""
+    """Move Pacman and all ghosts."""
     writer.undo()
     writer.write(state['score'])
 
@@ -161,23 +180,28 @@ def move():
 
 
 def change(x, y):
-    """Change pacman aim if valid."""
+    """Change Pacman's aim if the new direction is valid."""
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
 
 
+# Setting up the game environment
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
 writer.goto(160, 160)
 writer.color('white')
 writer.write(state['score'])
+
+# Setting up event listeners for key presses
 listen()
 onkey(lambda: change(5, 0), 'Right')
 onkey(lambda: change(-5, 0), 'Left')
 onkey(lambda: change(0, 5), 'Up')
 onkey(lambda: change(0, -5), 'Down')
+
+# Drawing the initial game world and starting the game loop
 world()
 move()
 done()
