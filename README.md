@@ -19,12 +19,12 @@ This is the classic arcade, PacMan game created using the Turtle graphics librar
   
 ## Instructions
 
-Getting Started: Open the Pacman game on your device.
-Controls: Use arrow keys to move Pacman in different directions.
-Eating Dots: Guide Pacman to automatically eat all the small dots.
-Avoiding Ghosts: Maneuver Pacman to avoid contact with moving ghosts.
-Scoring: Accumulate points by eating dots
-Game Over: The game ends when the ghost catches you
+1. Getting Started: Open the Pacman game on your device.
+2. Controls: Use arrow keys to move Pacman in different directions.
+3. Eating Dots: Guide Pacman to automatically eat all the small dots.
+4. Avoiding Ghosts: Maneuver Pacman to avoid contact with moving ghosts.
+5. Scoring: Accumulate points by eating dots
+6. Game Over: The game ends when the ghost catches you
 
 ### By Risako Baba - A01757208
 
