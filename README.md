@@ -59,7 +59,7 @@ This is a simple memory puzzle game implemented in Python using the Turtle graph
 
 # Tictactoe
 
-This is a simple game powered by the turtle library on python. The game consist on a grid of 9 squares in which each player will place a circle or a cross (alternating with each player) with the goal of line up 3 of your simbole on a single line
+This is a simple game powered by the turtle library on python. The game consist on a grid of 9 squares in which each player will place a circle or a cross (alternating with each player) with the goal of line up 3 of your simbol on a single line
 
 ## Added features
 - The circle has now a blue colour
@@ -71,6 +71,6 @@ This is a simple game powered by the turtle library on python. The game consist 
 ## Instructions
 1. Player one has to click on a tile to mark it with an X
 2. Player two has to click on a tile to mark it with an O
-3. The game will end when the first player to line up (vertically, horizontally or diagonally) their simbol wins or when there's no left tile to mark
+3. The game will repeat proces 1-2 until the first player to line up (vertically, horizontally or diagonally) their simbol wins or when there's no left tile to mark
 
 ### By Miguel Angel Uribe Esquivel A01277614
