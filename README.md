@@ -62,15 +62,15 @@ This is a simple memory puzzle game implemented in Python using the Turtle graph
 This is a simple game powered by the turtle library on python. The game consist on a grid of 9 squares in which each player will place a circle or a cross (alternating with each player) with the goal of line up 3 of your simbole on a single line
 
 ## Added features
--The circle has now a blue colour
--The cross has now a red colour
--The dimention of both simbols has been reduce and center for a better visualization
--Now the game can detect if there's already a simbol on a tile of the grid, this helps to prevent overlap between simbols on a game
--Adherence to PEP 8 coding standards
+- The circle has now a blue colour
+- The cross has now a red colour
+- The dimention of both simbols has been reduce and center for a better visualization
+- Now the game can detect if there's already a simbol on a tile of the grid, this helps to prevent overlap between simbols on a game
+- Adherence to PEP 8 coding standards
 
 ## Instructions
--Player one has to click on a tile to mark it with an X
--Player two has to click on a tile to mark it with an O
--The game will end when the first player to line up (vertically, horizontally or diagonally) their simbol wins or when there's no left tile to mark
+1. Player one has to click on a tile to mark it with an X
+2. Player two has to click on a tile to mark it with an O
+3. The game will end when the first player to line up (vertically, horizontally or diagonally) their simbol wins or when there's no left tile to mark
 
 ### By Miguel Angel Uribe Esquivel A01277614
