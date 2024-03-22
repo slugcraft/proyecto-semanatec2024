@@ -11,7 +11,11 @@
 
 This is a simple memory puzzle game implemented in Python using the Turtle graphics library. The game presents players with a grid of tiles, each containing a number. The objective is to match pairs of numbers by revealing tiles, exercising memory and concentration skills.
 
-## Feautures
+## Added Features
+
+- Added a counter to keep track of the number of taps made: The way a added this feature was by adding a variable called `taps` and then I added a function called `update_taps` that would update the number of taps made every time a tile is clicked. I also added a turtle that would display the number of taps made on the screen.
+- Added a final message to congratulate the player when all tiles are revealed: Just check if all the tiles are revealed then in the draw function I added a turtle that would display a message congratulating the player.
+
 
 - Grid of tiles with numbers.
 - Players reveal tiles by clicking on them.
