@@ -3,10 +3,31 @@
 
  Dante David Pérez Pérez - A01709226 - Memory Puzzle Game
 
- Risako Baba - Participante - A01757208 -PacMan
+ Risako Baba - A01757208 -PacMan
 
  Miguel Ángel Uribe Esquivel - A01277614 - Tic Tac Toe
- 
+
+# PacMan 
+This is the classic arcade, PacMan game created using the Turtle graphics library of Python. The game shows the yellow circle, the Pacman, in an enclosed maze filled with white dots. The user must use the arrow keys to move it and eat all the dots avoiding the four red ghosts.
+
+## Added and Modified Features
+
+- Added more walls in the map: Walls are added by changing some elements of the array called "tiles" from 1 to 0. 
+- Increased the speed of the ghosts: the ghosts move now faster by increasing the number of the vectors in the function move(), which represents the distance the ghosts advance in one second.
+
+- Adherence to PEP 8 coding standards.
+  
+## Instructions
+
+Getting Started: Open the Pacman game on your device.
+Controls: Use arrow keys to move Pacman in different directions.
+Eating Dots: Guide Pacman to automatically eat all the small dots.
+Avoiding Ghosts: Maneuver Pacman to avoid contact with moving ghosts.
+Scoring: Accumulate points by eating dots
+Game Over: The game ends when the ghost catches you
+
+### By Risako Baba - A01757208
+
 # Memory Puzzle Game
 
 This is a simple memory puzzle game implemented in Python using the Turtle graphics library. The game presents players with a grid of tiles, each containing a number. The objective is to match pairs of numbers by revealing tiles, exercising memory and concentration skills.
