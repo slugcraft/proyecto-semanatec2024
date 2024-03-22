@@ -7,11 +7,16 @@ Exercises
 3. How would you detect when someone has won?
 4. How could you create a computer player?
 """
+# IMPORT THE FUNCTIONS THAT ARE NECESARY FROM TURTLE TO RUN THE PROGRAM
 
-from turtle import update, up, goto, down, circle,color
+from turtle import update, up, goto, down, circle, color
 from turtle import setup, hideturtle, tracer, onscreenclick, done
 
 from freegames import line
+
+# KEEPS THE COORDINATES OF THE POSITIONS THAT HAVE A SIMBOL ON THE BOARD
+
+boxes = []
 
 
 def grid():
@@ -25,17 +30,26 @@ def grid():
 def drawx(x, y):
     """Draw X player."""
     color("red")
-    
-    line(x+33, y+33, x + 100, y + 100)#/
-    line(x+33, y + 100, x + 100, y+33)#\
+    # / CENTER THE X
+    line(x+33, y+33, x + 100, y + 100)
+    # \ CENTER THE X
+    line(x+33, y + 100, x + 100, y+33)
+
+# RETURNS BOOL IF (x, y) COORDINATES HAVE ALREADY A SIMBOL INSIDE
+
+
+def ocupacion(x, y):
+    return ((x, y) in boxes)
 
 
 def drawo(x, y):
     """Draw O player."""
     color("blue")
     up()
+    # CENTERS THE CIRCLE
     goto(x + 67, y + 27)
     down()
+    # REDUCE THE SIZE OF THE CIRCLE
     circle(40)
 
 
@@ -53,10 +67,20 @@ def tap(x, y):
     x = floor(x)
     y = floor(y)
     player = state['player']
-    draw = players[player]
-    draw(x, y)
+    # IF THE COORDINATES DOESN´T HAVE A SIMBOLE YET
+
+    if (not (ocupacion(x, y))):
+
+        # REGISTERS THE NEW SIMBOL
+        boxes.append((x, y))
+        draw = players[player]
+        draw(x, y)
+        update()
+        state['player'] = not player
+    else:
+        print("Casilla ocupada\n")
+
     update()
-    state['player'] = not player
 
 
 setup(420, 420, 370, 0)
