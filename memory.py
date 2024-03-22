@@ -10,8 +10,10 @@ Exercises:
 """
 
 from random import shuffle
-from turtle import (up, goto, down, color, begin_fill, forward, left, end_fill, clear, update, shape, stamp, write,
-                    ontimer, setup, addshape, hideturtle, tracer, onscreenclick, done)
+from turtle import (up, goto, down, color, begin_fill,
+                    forward, left, end_fill, clear, update,
+                    shape, stamp, write, ontimer, setup,
+                    addshape, hideturtle, tracer, onscreenclick, done)
 
 from freegames import path
 
@@ -125,6 +127,7 @@ def draw():
 
     update()
     ontimer(draw, 100)
+
 
 # shuffle tiles and setup game
 shuffle(tiles)
