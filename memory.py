@@ -9,19 +9,30 @@ Exercises:
 5. Use letters instead of tiles.
 """
 
-from random import *
-from turtle import *
+from random import shuffle
+from turtle import (up, goto, down, color, begin_fill,
+                    forward, left, end_fill, clear, update,
+                    shape, stamp, write, ontimer, setup,
+                    addshape, hideturtle, tracer, onscreenclick, done)
 
 from freegames import path
+
+import time
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+tap_count = 0
 
 
 def square(x, y):
-    """Draw white square with black outline at (x, y)."""
+    """
+    Draw white square with black outline at (x, y).
+    Args:
+        x: x-coordinate.
+        y: y-coordinate.
+    """
     up()
     goto(x, y)
     down()
@@ -34,17 +45,38 @@ def square(x, y):
 
 
 def index(x, y):
-    """Convert (x, y) coordinates to tiles index."""
+    """
+    Convert (x, y) coordinates to tiles index.
+    Args:
+        x: x-coordinate.
+        y: y-coordinate.
+    Returns:
+        int: tiles index.
+    """
     return int((x + 200) // 50 + ((y + 200) // 50) * 8)
 
 
 def xy(count):
-    """Convert tiles count to (x, y) coordinates."""
+    """
+    Convert tiles count to (x, y) coordinates.
+    Args:
+        count: tiles count.
+    Returns:
+        tuple: (x, y) coordinates.
+    """
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
 
 def tap(x, y):
-    """Update mark and hidden tiles based on tap."""
+    """
+    Update mark and hidden tiles based on tap.
+    Args:
+        x: x-coordinate.
+        y: y-coordinate.
+    """
+    global tap_count
+    tap_count += 1
+    print("Number of taps: ", tap_count)
     spot = index(x, y)
     mark = state['mark']
 
@@ -57,7 +89,9 @@ def tap(x, y):
 
 
 def draw():
-    """Draw image and tiles."""
+    """
+    Draw image and tiles.
+    """
     clear()
     goto(0, 0)
     shape(car)
@@ -77,12 +111,29 @@ def draw():
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
+    up()
+    goto(-200, 200)
+    write("Number of taps: " + str(tap_count), font=('Arial', 30, 'normal'))
+
+    if not any(hide):
+        up()
+        goto(-100, 0)
+        write("All tiles revealed", font=('Arial', 30, 'normal'))
+        print("All tiles revealed")
+        print("Game Over")
+
+        time.sleep(5)
+        exit()
+
     update()
     ontimer(draw, 100)
 
 
+# shuffle tiles and setup game
 shuffle(tiles)
-setup(420, 420, 370, 0)
+
+# setup game
+setup(500, 500, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
